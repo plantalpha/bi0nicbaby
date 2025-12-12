@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bi0nic baby</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- STARFIELD BACKGROUND -->
+  <canvas id="space"></canvas>
+
+  <!-- TRIPPY GIF OVERLAY (hidden by default) -->
+  <div id="trippyOverlay"></div>
+
+  <!-- CONTROL BOARD / OLD WINDOWS STYLE -->
+  <div class="control-board">
+    <!-- dance button -->
+    <button id="danceBtn" class="control-btn dance-btn" title="Dance Party">💃</button>
+
+    <!-- shuffle -->
+    <button id="shuffleBtn" class="control-btn" title="Shuffle">🔀</button>
+
+    <!-- placeholder tiny UI aesthetic -->
+    <button class="control-btn disabled" title="Coming Soon">🌈</button>
+    <button class="control-btn disabled" title="Coming Soon">🌀</button>
+    <button class="control-btn disabled" title="Coming Soon">👾</button>
+    <button class="control-btn disabled" title="Coming Soon">🎹</button>
+  </div>
+
+  <!-- HEADER SECTION -->
+  <header class="header-section">
+
+    <!-- LOGO ON LEFT ABOVE BAR -->
+    <a href="index.html" class="logo-link">
+      <img src="images/bionic_baby_logo.png" class="logo" alt="bi0nic baby logo">
+    </a>
+
+    <!-- FULL WIDTH RAINBOW BAR -->
+    <div class="rainbow-bar">
+      <div class="blob-container">
+        <a href="music.html"   class="blob"><img src="images/blob1.png"></a>
+        <a href="gallery.html" class="blob"><img src="images/blob2.png"></a>
+        <a href="videos.html"  class="blob"><img src="images/blob3.png"></a>
+        <a href="about.html"   class="blob"><img src="images/blob4.png"></a>
+        <a href="yooutube.html" class="blob"><img src="images/blob5.png"></a>
+        <a href="merch.html"   class="blob"><img src="images/blob6.png"></a>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <h1 class="page-title">bi0nic baby – sonic starfall</h1>
+
+    <div class="player-wrapper">
+      <iframe
+        width="100%"
+        height="450"
+        scrolling="no"
+        frameborder="no"
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/bi0nicbaby&color=%23ffcffd&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+      </iframe>
+    </div>
+  </main>
+
+  <!-- FLOATING HEARTS & CRITTERS -->
+  <div class="floaties">
+    <div class="floatie heart pink">♥</div>
+    <div class="floatie heart yellow">♥</div>
+    <div class="floatie heart blue">♥</div>
+    <div class="floatie critter bunny">🐰</div>
+    <div class="floatie critter bear">🧸</div>
+    <div class="floatie critter kitty">🐱</div>
+
+    <!-- KANDI BEADS (placeholders) -->
+    <img class="kandi" src="images/kandi1.png">
+    <img class="kandi" src="images/kandi2.png">
+    <img class="kandi" src="images/kandi3.png">
+  </div>
+
+  <!-- HIDDEN AUDIO + PARTY MESSAGE -->
+  <audio id="danceAudio" src="sounds/Life Wubz On.wav"></audio>
+  <div id="danceMessage" class="dance-message">bi0nic dance party!!!</div>
+
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>

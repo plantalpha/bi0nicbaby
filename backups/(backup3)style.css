@@ -1,0 +1,226 @@
+/* -----------------------------------------------
+   RESET + BODY
+------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: "Comic Sans MS", "Trebuchet MS", system-ui, sans-serif;
+  cursor: auto; /* pointer stays visible */
+  color: white;
+  background: black;
+}
+
+/* STARFIELD CANVAS BEHIND EVERYTHING */
+#space {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  display: block;
+}
+
+/* -----------------------------------------------
+   HEADER + LOGO + RAINBOW BAR
+------------------------------------------------- */
+
+.header-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 20px 0;
+  position: relative;
+  z-index: 5;
+}
+
+.logo-link {
+  margin-bottom: 8px;
+}
+
+.logo {
+  max-width: 230px;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}
+
+/* FULL WIDTH RAINBOW NAV BAR */
+.rainbow-bar {
+  width: 100vw;
+  height: 130px;
+  background: url("images/rainbow.png") repeat-x center;
+  background-size: auto 130px;
+  inset: -20px;
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  border-radius: 0;
+}
+
+/* -----------------------------------------------
+   BLOBS INFINITE CONVEYOR
+------------------------------------------------- */
+
+.blob-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 0;
+  transform: translateY(-50%);
+}
+
+.blob {
+  position: absolute;
+  transform: translateY(-50%);
+  text-decoration: none;
+}
+
+.blob img {
+  width: 130px;
+  filter: drop-shadow(0 0 12px rgba(0,0,0,0.6));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.blob:hover img {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 18px rgba(255,215,0,1));
+}
+
+/* -----------------------------------------------
+   CONTENT AREA
+------------------------------------------------- */
+
+.content {
+  max-width: 1000px;
+  margin: 40px auto 80px;
+  padding: 0 20px;
+  text-align: center;
+  z-index: 3;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  text-shadow: 0 0 10px white;
+}
+
+.player-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* -----------------------------------------------
+   FLOATING HEARTS / CRITTERS / KANDI
+------------------------------------------------- */
+
+.floaties {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+}
+
+.floatie {
+  position: absolute;
+  font-size: 2.2rem;
+  opacity: 0.9;
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(110vh); }
+  100% { transform: translateY(-120vh); }
+}
+
+.heart.pink   { left: 10%;  animation: floatUp 20s linear infinite;}
+.heart.yellow { left: 80%;  animation: floatUp 26s linear infinite;}
+.heart.blue   { left: 45%;  animation: floatUp 30s linear infinite;}
+
+.critter.bunny { left: 20%;  animation: floatUp 35s linear infinite;}
+.critter.bear  { left: 70%;  animation: floatUp 33s linear infinite;}
+.critter.kitty { left: 55%;  animation: floatUp 29s linear infinite;}
+
+/* KANDI BEADS - placeholders for now */
+.kandi {
+  position: absolute;
+  width: 60px;
+  top: calc(100vh + 20px);
+  animation: kandiFloat 32s linear infinite;
+  opacity: 0.95;
+}
+
+.kandi:nth-child(1) { left: 15%; animation-duration: 28s;}
+.kandi:nth-child(2) { left: 55%; animation-duration: 34s;}
+.kandi:nth-child(3) { left: 85%; animation-duration: 38s;}
+
+@keyframes kandiFloat {
+  0%   { transform: translateY(0);}
+  100% { transform: translateY(-140vh);}
+}
+
+/* -----------------------------------------------
+   SPARKLE TRAIL
+------------------------------------------------- */
+
+.sparkle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, white 0, #ffd6ff 40%, transparent 70%);
+  box-shadow: 0 0 12px white;
+  transform: translate(-50%, -50%);
+  animation: sparkleFade 0.6s ease-out forwards;
+  mix-blend-mode: screen;
+  z-index: 9999;
+}
+
+@keyframes sparkleFade {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1);}
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0);}
+}
+
+/* -----------------------------------------------
+   CONTROL BOARD
+------------------------------------------------- */
+
+.control-board {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 20;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  padding: 8px 10px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.control-board button {
+  margin: 4px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff9bf5, #88f3ff);
+  color: black;
+  font-size: 0.8rem;
+}
+
+/* -----------------------------------------------
+   MOBILE ADJUSTMENTS
+------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .logo {
+    max-width: 160px;
+  }
+
+  .blob img {
+    width: 90px;
+  }
+}
