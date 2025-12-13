@@ -90,6 +90,9 @@ body {
   filter: drop-shadow(0 0 18px rgba(255,215,0,1));
 }
 
+a[href="https://www.youtube.com/watch?v=Dqwqweq2U"]:hover {
+    filter: drop-shadow(0 0 12px #66d1ff) brightness(1.4);
+}
 
 /* -----------------------------------------------
    CONTENT AREA
