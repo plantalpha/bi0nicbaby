@@ -91,6 +91,37 @@ body {
 }
 
 /* -----------------------------------------------
+   BLOB2S INFINITE CONVEYOR
+------------------------------------------------- */
+
+.blob2-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 0;
+  transform: translateY(-50%);
+}
+
+.blob2 {
+  position: absolute;
+  transform: translateY(-50%);
+  text-decoration: none;
+}
+
+.blob2 img {
+  width: 130px;
+  filter: drop-shadow(0 0 12px rgba(45, 3, 100, 0.61));
+  transition: transform 0.25s ease, filter 0.25s ease;
+  will-change: transform;
+}
+
+.blob2:hover img {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 18px rgb(77, 255, 231));
+}
+
+
+/* -----------------------------------------------
    CONTENT AREA
 ------------------------------------------------- */
 
