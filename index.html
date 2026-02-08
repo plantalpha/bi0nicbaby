@@ -15,6 +15,9 @@
   <meta property="og:title" content="Bi0nic Baby — DJ • Producer • Visual Artist">
   <meta property="og:description" content="Create, don’t destroy. I love you all">
   <meta property="og:image" content="https://bi0nicbaby.com/images/social-preview.jpg">
+  <script type="module"
+  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
 </head>
 
 <body>
@@ -24,7 +27,7 @@
 
   <!-- TRIPPY GIF OVERLAY (hidden by default) -->
   <div id="trippyOverlay"></div>
-
+  
   <!-- CONTROL BOARD / OLD WINDOWS STYLE -->
   <div class="control-board">
     <button id="danceBtn" class="control-btn dance-btn" title="Dance Party">💃</button>
@@ -37,30 +40,69 @@
 
   <!-- HEADER SECTION -->
   <header class="header-section">
-
-    <!-- LOGO ON LEFT ABOVE BAR -->
-    <a href="index.html" class="logo-link">
-      <img src="images/bionic_baby_logo.png" class="logo" alt="bi0nic baby logo">
-    </a>
-
     <!-- FULL WIDTH RAINBOW BAR -->
     <div class="rainbow-bar">
-      <div class="blob-container">
-        <a href="music.html"   class="blob"><img src="images/blob1.png" alt="music"></a>
-        <a href="gallery.html" class="blob"><img src="images/blob2.png" alt="gallery"></a>
-        <a href="videos.html"  class="blob"><img src="images/blob3.png" alt="videos"></a>
-        <a href="about.html"   class="blob"><img src="images/blob4.png" alt="about"></a>
-        <a href="https://www.youtube.com/watch?v=DQKisyvGuqU" class="blob"><img src="images/blob5.png" alt="secret youtube video"></a>
-        <a href="merch.html"   class="blob"><img src="images/blob6.png" alt="merch"></a>
-      </div>
     </div>
+
+    
 
   </header>
 
   <!-- MAIN CONTENT -->
   <main class="content">
-    <h1 class="page-title">bi0nic baby – sonic starfall</h1>
+    <h1 class="page-title">💗💗💗 Planet Bi0nic Baby 💗💗💗</h1>
+    
+    <div class="planet-wrapper">
+  <model-viewer
+    id="planet"
+    src="/assets/bi0nicplanet.glb"
+    auto-rotate
+    rotation-per-second="12deg"
+    camera-controls
+    disable-zoom
+    environment-image="neutral"
+    shadow-intensity="0"
+    exposure="1.2">
 
+    <!-- HOTSPOTS -->
+    <button
+      class="hotspot"
+      slot="hotspot-1"
+      data-position="-0.625186m -1.14218m 1.14218m"
+      data-normal="1m 0m 0m"
+      data-url="https://soundcloud.com/bi0nicbaby">
+    </button>
+
+    <button
+      class="hotspot"
+      slot="hotspot-2"
+      data-position="1.6819m 0.268215m 0.305954m"
+      data-normal="0m 0m 1m"
+      data-url="https://www.youtube.com/@PlanetBi0nicBaby">
+    </button>
+
+    <button
+      class="hotspot"
+      slot="hotspot-3"
+      data-position="-0.268215m 1.6819m -0.305954m"
+      data-normal="0m 1m 0m"
+      data-url="https://www.youtube.com/@breezyjoinks">
+    </button>
+
+  </model-viewer>
+</div>
+
+  </main>
+
+  
+  
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
+
+
+<!--
     <div class="player-wrapper">
       <iframe
         width="100%"
@@ -70,29 +112,4 @@
         allow="autoplay"
         src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/bi0nicbaby&color=%23ffcffd&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
       </iframe>
-    </div>
-  </main>
-
-  <!-- FLOATING HEARTS & CRITTERS & KANDI -->
-  <div class="floaties">
-    <div class="floatie heart pink">♥</div>
-    <div class="floatie heart yellow">♥</div>
-    <div class="floatie heart blue">♥</div>
-    <div class="floatie critter bunny">🐰</div>
-    <div class="floatie critter bear">🧸</div>
-    <div class="floatie critter kitty">🐱</div>
-
-    <!-- KANDI BEADS (placeholders) -->
-    <img class="kandi" src="images/kandi1.png" alt="">
-    <img class="kandi" src="images/kandi2.png" alt="">
-    <img class="kandi" src="images/kandi3.png" alt="">
-  </div>
-
-  <!-- HIDDEN AUDIO + PARTY MESSAGE -->
-  <audio id="danceAudio" src="sounds/Life Wubz On.wav"></audio>
-  <div id="danceMessage" class="dance-message">bi0nic dance party!!!</div>
-
-  <script type="module" src="app.js"></script>
-
-</body>
-</html>
+    </div>-->

@@ -62,38 +62,16 @@ window.addEventListener("resize", () => {
 });
 
 /* -------------------------------------------------
-   BLOB INFINITE CONVEYOR
+   DIAOLOG BOXES FOR THE PLNAET BABY
 ------------------------------------------------- */
 
-const blobs = Array.from(document.querySelectorAll('.blob'));
-let offset = -window.innerWidth;
-let speed = 1.2;
-let paused = false;
-let mouseY = window.innerHeight / 2;
-
-function getSpacing() {
-  // your wider spacing to keep them apart
-  return Math.max(window.innerWidth / blobs.length, 440);
-}
-
-function layoutBlobs() {
-  const spacing = getSpacing();
-  const trackLength = spacing * blobs.length;
-  blobs.forEach((blob, i) => {
-    let x = (i * spacing) + offset;
-    x = ((x % trackLength) + trackLength) % trackLength;
-    const p = ((mouseY / window.innerHeight) - 0.5) * 10;
-    blob.style.left = (x - spacing) + "px";
-    blob.style.top = (50 + p) + "%";
+document.querySelectorAll("model-viewer .hotspot").forEach(btn => {
+  btn.addEventListener("click", () => {
+    window.open(btn.dataset.url, "_blank");
   });
-}
+});
 
-function animateConveyor() {
-  if (!paused) offset += speed;
-  layoutBlobs();
-  requestAnimationFrame(animateConveyor);
-}
-animateConveyor();
+
 
 // hover chime
 let chime = null;
@@ -147,36 +125,6 @@ shuffleBtn.addEventListener("click", () => {
    (keeps same float, occasionally swaps positions)
 ------------------------------------------------- */
 
-function randomizeFloatiePositions() {
-  const floaties = Array.from(document.querySelectorAll('.floatie'));
-  const kandi = Array.from(document.querySelectorAll('.kandi'));
-
-  // lanes for 6 floaties (matching your CSS)
-  const floatieLanes = ['10vw','40vw','70vw','20vw','55vw','85vw'];
-  // shuffle lanes
-  for (let i = floatieLanes.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [floatieLanes[i], floatieLanes[j]] = [floatieLanes[j], floatieLanes[i]];
-  }
-  floaties.forEach((el, i) => {
-    if (floatieLanes[i]) el.style.left = floatieLanes[i];
-  });
-
-  // lanes for 3 kandi beads
-  const kandiLanes = ['15vw','50vw','80vw'];
-  for (let i = kandiLanes.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [kandiLanes[i], kandiLanes[j]] = [kandiLanes[j], kandiLanes[i]];
-  }
-  kandi.forEach((el, i) => {
-    if (kandiLanes[i]) el.style.left = kandiLanes[i];
-  });
-}
-
-// initial swap
-randomizeFloatiePositions();
-// occasional swaps every 12 seconds (trippy but not constant)
-setInterval(randomizeFloatiePositions, 12000);
 
 /* -------------------------------------------------
    DANCE PARTY MODE (random part of Life Wubz On.wav)

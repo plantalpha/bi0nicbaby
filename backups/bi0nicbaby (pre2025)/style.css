@@ -1,0 +1,323 @@
+/* -----------------------------------------------
+   RESET + BODY
+------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: "Comic Sans MS", "Trebuchet MS", system-ui, sans-serif;
+  cursor: auto;
+  color: white;
+  background: black;
+}
+
+/* STARFIELD CANVAS BEHIND EVERYTHING */
+#space {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  display: block;
+}
+
+/* -----------------------------------------------
+   HEADER + LOGO + RAINBOW BAR
+------------------------------------------------- */
+
+.header-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 20px 0;
+  position: relative;
+  z-index: 5;
+}
+
+.logo-link {
+  margin-bottom: 8px;
+}
+
+.logo {
+  max-width: 230px;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}
+
+/* FULL WIDTH RAINBOW NAV BAR (your version) */
+.rainbow-bar {
+  width: 100vw;
+  height: 150px;
+  background: url("images/rainbow.png") repeat-x center;
+  background-size: auto 130px;
+  inset: -20px;
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  border-radius: 0;
+}
+
+/* -----------------------------------------------
+   BLOBS INFINITE CONVEYOR
+------------------------------------------------- */
+
+.blob-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 0;
+  transform: translateY(-50%);
+}
+
+.blob {
+  position: absolute;
+  transform: translateY(-50%);
+  text-decoration: none;
+}
+
+.blob img {
+  width: 130px;
+  filter: drop-shadow(0 0 12px rgba(0,0,0,0.6));
+  transition: transform 0.25s ease, filter 0.25s ease;
+  will-change: transform;
+}
+
+.blob:hover img {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 18px rgba(255,215,0,1));
+}
+
+a[href="https://www.youtube.com/watch?v=Dqwqweq2U"]:hover {
+    filter: drop-shadow(0 0 12px #66d1ff) brightness(1.4);
+}
+
+/* -----------------------------------------------
+   CONTENT AREA
+------------------------------------------------- */
+
+.content {
+  max-width: 1000px;
+  margin: 40px auto 80px;
+  padding: 0 20px;
+  text-align: center;
+  z-index: 3;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  text-shadow: 0 0 10px white;
+}
+
+.player-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* -----------------------------------------------
+ FLOATING HEARTS / CRITTERS / KANDI
+------------------------------------------------- */
+
+.floaties {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+}
+
+.floatie {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatUp 20s linear infinite;
+  opacity: 0.8;
+}
+
+/* base lanes (JS will occasionally swap them) */
+.floatie.heart.pink   { left: 10vw; top: 80vh; }
+.floatie.heart.yellow { left: 40vw; top: 90vh; }
+.floatie.heart.blue   { left: 70vw; top: 85vh; }
+
+.floatie.critter.bunny { left: 20vw; top: 95vh; }
+.floatie.critter.bear  { left: 55vw; top: 92vh; }
+.floatie.critter.kitty { left: 85vw; top: 88vh; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { transform: translateY(-100vh) scale(1.4); opacity: 0; }
+}
+
+/* KANDI BEADS */
+.kandi {
+  position: absolute;
+  width: 60px;
+  top: calc(100vh + 20px);
+  animation: kandiFloat 32s linear infinite;
+  opacity: 0.95;
+}
+
+/* base lanes (JS will occasionally swap them) */
+.kandi:nth-of-type(1) { left: 15vw; animation-duration: 28s; }
+.kandi:nth-of-type(2) { left: 50vw; animation-duration: 34s; }
+.kandi:nth-of-type(3) { left: 80vw; animation-duration: 38s; }
+
+@keyframes kandiFloat {
+  0%   { transform: translateY(0); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translateY(-140vh); opacity: 0; }
+}
+
+/* -----------------------------------------------
+   SPARKLE TRAIL
+------------------------------------------------- */
+
+.sparkle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, white 0, #ffd6ff 40%, transparent 70%);
+  box-shadow: 0 0 12px white;
+  transform: translate(-50%, -50%);
+  animation: sparkleFade 0.6s ease-out forwards;
+  mix-blend-mode: screen;
+  z-index: 9999;
+}
+
+@keyframes sparkleFade {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+}
+
+/* -----------------------------------------------
+   CONTROL BOARD / OLD WINDOWS BAR
+------------------------------------------------- */
+
+.control-board {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 20;
+  background: rgba(240,240,240,0.9);
+  border: 2px solid #a0a0a0;
+  padding: 6px;
+  border-radius: 6px;
+  font-family: "MS Sans Serif", sans-serif;
+  display: flex;
+  gap: 6px;
+}
+
+.control-btn {
+  border: 1px solid #8a8a8a;
+  background: linear-gradient(#f0f0f0, #c8c8c8);
+  font-size: 0.9rem;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: inset 1px 1px #ffffff, inset -1px -1px #b0b0b0;
+}
+
+.control-btn.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* dance button flashy */
+.dance-btn {
+  animation: pulseDance 1.4s infinite ease-in-out;
+}
+@keyframes pulseDance {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.09); }
+  100% { transform: scale(1); }
+}
+
+/* flash message */
+.dance-message {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  text-shadow: 0 0 16px #ff00ea, 0 0 32px #ff00ea;
+  opacity: 0;
+  transition: opacity 1.2s ease-out;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.dance-message.show {
+  opacity: 1;
+}
+
+/* TRIPPY OVERLAY */
+#trippyOverlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: url("images/trippy.gif") center / cover no-repeat;
+  opacity: 0;
+  mix-blend-mode: screen;
+  transition: opacity 0.6s ease;
+  z-index: 9998;
+}
+
+/* active when dancing */
+body.dance-glitch #trippyOverlay {
+  opacity: 0.15;
+}
+
+/* gentle shake + color freakout */
+body.dance-glitch {
+  filter: hue-rotate(160deg) saturate(2) contrast(1.6);
+  animation: danceShake 0.3s infinite alternate;
+}
+
+@keyframes danceShake {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  25% { transform: translate(0.5px, -0.5px) rotate(-0.3deg); }
+  50% { transform: translate(-0.5px, 0.5px) rotate(0.3deg); }
+  75% { transform: translate(0.4px, 0px) rotate(-0.2deg); }
+  100% { transform: translate(0px, 0.4px) rotate(0deg); }
+}
+
+/* BIG RED STOP BUTTON OVER EVERYTHING */
+.stop-dance-btn {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  z-index: 10000;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.stop-dance-btn img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.stop-dance-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .logo { max-width: 160px; }
+  .blob img { width: 90px; }
+  .page-title { font-size: 2rem; }
+}

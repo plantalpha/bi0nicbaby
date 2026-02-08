@@ -64,36 +64,6 @@ body {
    BLOBS INFINITE CONVEYOR
 ------------------------------------------------- */
 
-.blob-container {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: 0;
-  transform: translateY(-50%);
-}
-
-.blob {
-  position: absolute;
-  transform: translateY(-50%);
-  text-decoration: none;
-}
-
-.blob img {
-  width: 130px;
-  filter: drop-shadow(0 0 12px rgba(0,0,0,0.6));
-  transition: transform 0.25s ease, filter 0.25s ease;
-  will-change: transform;
-}
-
-.blob:hover img {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 18px rgba(255,215,0,1));
-}
-
-a[href="https://www.youtube.com/watch?v=Dqwqweq2U"]:hover {
-    filter: drop-shadow(0 0 12px #66d1ff) brightness(1.4);
-}
-
 /* -----------------------------------------------
    CONTENT AREA
 ------------------------------------------------- */
@@ -119,57 +89,37 @@ a[href="https://www.youtube.com/watch?v=Dqwqweq2U"]:hover {
 }
 
 /* -----------------------------------------------
- FLOATING HEARTS / CRITTERS / KANDI
+ PLANET BIONIC BABY
 ------------------------------------------------- */
 
-.floaties {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: -5;
+.planet-wrapper {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin: 0 auto;
 }
 
-.floatie {
-  position: absolute;
-  font-size: 2rem;
-  animation: floatUp 20s linear infinite;
-  opacity: 0.8;
+model-viewer {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
-/* base lanes (JS will occasionally swap them) */
-.floatie.heart.pink   { left: 10vw; top: 80vh; }
-.floatie.heart.yellow { left: 40vw; top: 90vh; }
-.floatie.heart.blue   { left: 70vw; top: 85vh; }
-
-.floatie.critter.bunny { left: 20vw; top: 95vh; }
-.floatie.critter.bear  { left: 55vw; top: 92vh; }
-.floatie.critter.kitty { left: 85vw; top: 88vh; }
-
-@keyframes floatUp {
-  0% { transform: translateY(0) scale(1); opacity: 0; }
-  10% { opacity: 0.9; }
-  100% { transform: translateY(-100vh) scale(1.4); opacity: 0; }
+/* HOTSPOTS */
+.hotspot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff14e0;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px #e1ff5d;
 }
 
-/* KANDI BEADS */
-.kandi {
-  position: absolute;
-  width: 60px;
-  top: calc(100vh + 20px);
-  animation: kandiFloat 32s linear infinite;
-  opacity: 0.95;
+.hotspot:hover {
+  transform: scale(1.4);
 }
 
-/* base lanes (JS will occasionally swap them) */
-.kandi:nth-of-type(1) { left: 15vw; animation-duration: 28s; }
-.kandi:nth-of-type(2) { left: 50vw; animation-duration: 34s; }
-.kandi:nth-of-type(3) { left: 80vw; animation-duration: 38s; }
-
-@keyframes kandiFloat {
-  0%   { transform: translateY(0); opacity: 0; }
-  10%  { opacity: 1; }
-  100% { transform: translateY(-140vh); opacity: 0; }
-}
 
 /* -----------------------------------------------
    SPARKLE TRAIL
