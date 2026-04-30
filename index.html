@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>bi0nic baby</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/jpg" href="images/favicon.jpg">
   <!-- Meta Info -->
   <title>Bi0nic Baby — DJ • Producer • Visual Artist</title>
@@ -15,101 +14,359 @@
   <meta property="og:title" content="Bi0nic Baby — DJ • Producer • Visual Artist">
   <meta property="og:description" content="Create, don’t destroy. I love you all">
   <meta property="og:image" content="https://bi0nicbaby.com/images/social-preview.jpg">
-  <script type="module"
-  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
-</head>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #82ff8c, #2a1563);
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 1000;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-size: 0.95rem;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00f7ff;
+    }
+
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 160px 40px 80px;
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 4.5rem;
+      letter-spacing: 5px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      margin-bottom: 35px;
+    }
+
+    #floating-background {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .floater {
+      position: absolute;
+      left: -200px;
+      opacity: 0.35;
+      pointer-events: none;
+      animation-name: floatAcross;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    } 
+
+
+    .floater img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @keyframes floatAcross {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(140vw);
+        }
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 34px;
+      border-radius: 10px;
+      background: #00f7ff;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      max-width: 2000px;
+      margin: auto;
+      padding: 80px 40px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .preview-card {
+      background: #121212;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: #2bc46a;
+    }
+
+    .preview-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .preview-image {
+      height: 220px;
+      background: #1e1e1e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      opacity: 0.7;
+      overflow: hidden;
+    }
+
+    .preview-image img {
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .preview-text {
+      padding: 24px;
+    }
+
+    .preview-text h3 {
+      margin-bottom: 10px;
+    }
+
+    .interactive-box {
+      margin-top: 60px;
+      padding: 40px;
+      border-radius: 20px;
+      background: #0f0f0f;
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px;
+      border-top: 5px solid rgba(245, 243, 129, 0.8);
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      nav ul {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
 <body>
 
-  <!-- STARFIELD BACKGROUND -->
-  <canvas id="space"></canvas>
+  <header>
+    <div class="logo">BI0NIC BABY</div>
 
-  <!-- TRIPPY GIF OVERLAY (hidden by default) -->
-  <div id="trippyOverlay"></div>
-  
-  <!-- CONTROL BOARD / OLD WINDOWS STYLE -->
-  <div class="control-board">
-    <button id="danceBtn" class="control-btn dance-btn" title="Dance Party">💃</button>
-    <button id="shuffleBtn" class="control-btn" title="Shuffle">🔀</button>
-    <button class="control-btn disabled" title="Coming Soon">🌈</button>
-    <button class="control-btn disabled" title="Coming Soon">🌀</button>
-    <button class="control-btn disabled" title="Coming Soon">👾</button>
-    <button class="control-btn disabled" title="Coming Soon">🎹</button>
-  </div>
-
-  <!-- HEADER SECTION -->
-  <header class="header-section">
-    <!-- FULL WIDTH RAINBOW BAR -->
-    <div class="rainbow-bar">
-    </div>
-
-    
-
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/music">Music</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/@amberlucille/videos">Videos</a></li>
+        <li><a>Events</a></li>
+        <li><a>Blog</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="content">
-    <h1 class="page-title">💗💗💗 Planet Bi0nic Baby 💗💗💗</h1>
-    
-    <div class="planet-wrapper">
-  <model-viewer
-    id="planet"
-    src="/assets/bi0nicplanet.glb"
-    auto-rotate
-    rotation-per-second="12deg"
-    camera-controls
-    disable-zoom
-    environment-image="neutral"
-    shadow-intensity="0"
-    exposure="1.2">
+  <main>
+    <section class="hero">
 
-    <!-- HOTSPOTS -->
-    <button
-      class="hotspot"
-      slot="hotspot-1"
-      data-position="-0.625186m -1.14218m 1.14218m"
-      data-normal="1m 0m 0m"
-      data-url="https://soundcloud.com/bi0nicbaby">
-    </button>
+      <div id="floating-background"></div>
 
-    <button
-      class="hotspot"
-      slot="hotspot-2"
-      data-position="1.6819m 0.268215m 0.305954m"
-      data-normal="0m 0m 1m"
-      data-url="https://www.youtube.com/@PlanetBi0nicBaby">
-    </button>
+      <div class="hero-content">
+        <h1>BI0NIC BABY</h1>
+        <p>
+          DJ • visual artist • deep thinker • free spririt
+          <br><br>
+          bi0nic mixes for the most bi0nic
+        </p>
 
-    <button
-      class="hotspot"
-      slot="hotspot-3"
-      data-position="-0.268215m 1.6819m -0.305954m"
-      data-normal="0m 1m 0m"
-      data-url="https://www.youtube.com/@breezyjoinks">
-    </button>
+        <a target="_blank" href="https://soundcloud.com/bi0nicbaby" class="btn">Enter The Sound</a>
+      </div>
+    </section>
 
-  </model-viewer>
-</div>
+    <section>
+      <h2>Featured Mixes</h2>
 
+      <div class="preview-grid">
+        <a target="_blank" href="https://soundcloud.com/bi0nicbaby/104-days-til-summer" class="preview-card">
+          <div class="preview-image">
+            <img src="https://i1.sndcdn.com/artworks-U6HXisf3g1gx9Xdo-qdOjfw-t500x500.png" alt="104 Days Til Summer Cover">
+          </div>
+          <div class="preview-text">
+            <h3>104 days til summer </h3>
+            <p>Latest mix (April 15th, 2026)</p>
+          </div>
+        </a>
+
+        <a target="_blank" href="https://soundcloud.com/bi0nicbaby/where-have-wubz-been-all-my" class="preview-card">
+          <div class="preview-image">
+            <img src="https://i1.sndcdn.com/artworks-zMozzGjP3QH7QCI7-IzZaqg-t500x500.jpg" alt="104 Days Til Summer Cover">
+          </div>
+          <div class="preview-text">
+            <h3>Where Have Wubz Been All My Life! (Freestyle)</h3>
+            <p>One of my favorite mixes I've made so far. Freestyle of a bunch of songs newly downloaded. Much appreciation for giving it a listen!</p>
+          </div>
+        </a>
+
+        <a target="_blank" href="https://soundcloud.com/bi0nicbaby/for-josh" class="preview-card">
+          <div class="preview-image">
+            <img src="https://i1.sndcdn.com/artworks-P6jyZzUUF0ezVoxR-aGLRSQ-t500x500.jpg" alt="104 Days Til Summer Cover">
+          </div>
+          <div class="preview-text">
+            <h3>FJ (RIDDIM HOURS)</h3>
+            <p>Happy birthday Josh!</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="interactive-box">
+        <h2>Interactive Section (TBD)</h2>
+        <p>
+          Future area for exclusive content, fan interaction, mystery drops,
+          hidden mixes, collectibles, or custom digital experiences.
+        </p>
+      </div>
+    </section>
   </main>
 
-  
-  
-  <script type="module" src="app.js"></script>
+  <footer>
+    © 2026 bi0nic baby — All Rights Reserved
+  </footer>
+
+
+<script>
+  const floaterImages = [
+      "https://i1.sndcdn.com/artworks-zMozzGjP3QH7QCI7-IzZaqg-t500x500.jpg",
+      "https://i1.sndcdn.com/artworks-P6jyZzUUF0ezVoxR-aGLRSQ-t500x500.jpg",
+      "https://i1.sndcdn.com/artworks-U6HXisf3g1gx9Xdo-qdOjfw-t500x500.png",
+      "https://i1.sndcdn.com/artworks-U6HXisf3g1gx9Xdo-qdOjfw-t500x500.png",
+      "https://i1.sndcdn.com/artworks-zMozzGjP3QH7QCI7-IzZaqg-t500x500.jpg"
+  ];
+
+  const container = document.getElementById("floating-background");
+
+  function spawnFloater() {
+      const floater = document.createElement("div");
+      floater.classList.add("floater");
+
+      const img = document.createElement("img");
+
+      const randomImage =
+          floaterImages[Math.floor(Math.random() * floaterImages.length)];
+
+      img.src = randomImage;
+
+      const randomTop = Math.random() * 85;
+      const randomSize = 40 + Math.random() * 100;
+      const randomDuration = 20 + Math.random() * 30;
+
+      floater.style.top = randomTop + "%";
+      floater.style.width = randomSize + "px";
+      floater.style.animationDuration = randomDuration + "s";
+
+      floater.appendChild(img);
+      container.appendChild(floater);
+
+      setTimeout(() => {
+          floater.remove();
+      }, randomDuration * 1000);
+  }
+
+  setInterval(() => {
+      spawnFloater();
+  }, 2000);
+</script>
 
 </body>
 </html>
-
-
-<!--
-    <div class="player-wrapper">
-      <iframe
-        width="100%"
-        height="450"
-        scrolling="no"
-        frameborder="no"
-        allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/bi0nicbaby&color=%23ffcffd&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-      </iframe>
-    </div>-->

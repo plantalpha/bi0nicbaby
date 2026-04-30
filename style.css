@@ -1,124 +1,70 @@
-/* -----------------------------------------------
-   RESET + BODY
-------------------------------------------------- */
-
 * {
-  box-sizing: border-box;
-}
+      margin-bottom: 30px;
+      opacity: 0.85;
+    }
 
-body {
-  margin: 0;
-  overflow-x: hidden;
-  font-family: "Comic Sans MS", "Trebuchet MS", system-ui, sans-serif;
-  cursor: auto;
-  color: white;
-  background: black;
-}
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #00f7ff;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
 
-/* STARFIELD CANVAS BEHIND EVERYTHING */
-#space {
-  position: fixed;
-  inset: 0;
-  z-index: -10;
-  display: block;
-}
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
-/* -----------------------------------------------
-   HEADER + LOGO + RAINBOW BAR
-------------------------------------------------- */
+    section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-.header-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 12px 20px 0;
-  position: relative;
-  z-index: 5;
-}
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
 
-.logo-link {
-  margin-bottom: 8px;
-}
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
 
-.logo {
-  max-width: 230px;
-  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-}
+    .card {
+      background: #151515;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
 
-/* FULL WIDTH RAINBOW NAV BAR (your version) */
-.rainbow-bar {
-  width: 100vw;
-  height: 150px;
-  background: url("images/rainbow.png") repeat-x center;
-  background-size: auto 130px;
-  inset: -20px;
-  margin-top: 15px;
-  position: relative;
-  overflow: hidden;
-  border: none;
-  border-radius: 0;
-}
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      opacity: 0.7;
+    }
 
-/* -----------------------------------------------
-   BLOBS INFINITE CONVEYOR
-------------------------------------------------- */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
 
-/* -----------------------------------------------
-   CONTENT AREA
-------------------------------------------------- */
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-.content {
-  max-width: 1000px;
-  margin: 40px auto 80px;
-  padding: 0 20px;
-  text-align: center;
-  z-index: 3;
-}
-
-.page-title {
-  font-size: 2.5rem;
-  margin-bottom: 24px;
-  text-shadow: 0 0 10px white;
-}
-
-.player-wrapper {
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-}
-
-/* -----------------------------------------------
- PLANET BIONIC BABY
-------------------------------------------------- */
-
-.planet-wrapper {
-  position: relative;
-  width: 420px;
-  height: 420px;
-  margin: 0 auto;
-}
-
-model-viewer {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-/* HOTSPOTS */
-.hotspot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #ff14e0;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 0 10px #e1ff5d;
-}
-
-.hotspot:hover {
-  transform: scale(1.4);
-}
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
 
 
 /* -----------------------------------------------
@@ -144,130 +90,3 @@ model-viewer {
   100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
 }
 
-/* -----------------------------------------------
-   CONTROL BOARD / OLD WINDOWS BAR
-------------------------------------------------- */
-
-.control-board {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 20;
-  background: rgba(240,240,240,0.9);
-  border: 2px solid #a0a0a0;
-  padding: 6px;
-  border-radius: 6px;
-  font-family: "MS Sans Serif", sans-serif;
-  display: flex;
-  gap: 6px;
-}
-
-.control-btn {
-  border: 1px solid #8a8a8a;
-  background: linear-gradient(#f0f0f0, #c8c8c8);
-  font-size: 0.9rem;
-  padding: 6px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: inset 1px 1px #ffffff, inset -1px -1px #b0b0b0;
-}
-
-.control-btn.disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-
-/* dance button flashy */
-.dance-btn {
-  animation: pulseDance 1.4s infinite ease-in-out;
-}
-@keyframes pulseDance {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.09); }
-  100% { transform: scale(1); }
-}
-
-/* flash message */
-.dance-message {
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 3rem;
-  text-shadow: 0 0 16px #ff00ea, 0 0 32px #ff00ea;
-  opacity: 0;
-  transition: opacity 1.2s ease-out;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-.dance-message.show {
-  opacity: 1;
-}
-
-/* TRIPPY OVERLAY */
-#trippyOverlay {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  background: url("images/trippy.gif") center / cover no-repeat;
-  opacity: 0;
-  mix-blend-mode: screen;
-  transition: opacity 0.6s ease;
-  z-index: 9998;
-}
-
-/* active when dancing */
-body.dance-glitch #trippyOverlay {
-  opacity: 0.15;
-}
-
-/* gentle shake + color freakout */
-body.dance-glitch {
-  filter: hue-rotate(160deg) saturate(2) contrast(1.6);
-  animation: danceShake 0.3s infinite alternate;
-}
-
-@keyframes danceShake {
-  0% { transform: translate(0px, 0px) rotate(0deg); }
-  25% { transform: translate(0.5px, -0.5px) rotate(-0.3deg); }
-  50% { transform: translate(-0.5px, 0.5px) rotate(0.3deg); }
-  75% { transform: translate(0.4px, 0px) rotate(-0.2deg); }
-  100% { transform: translate(0px, 0.4px) rotate(0deg); }
-}
-
-/* BIG RED STOP BUTTON OVER EVERYTHING */
-.stop-dance-btn {
-  position: fixed;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  height: 70px;
-  z-index: 10000;
-  border: none;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.stop-dance-btn img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.stop-dance-btn.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .logo { max-width: 160px; }
-  .blob img { width: 90px; }
-  .page-title { font-size: 2rem; }
-}
